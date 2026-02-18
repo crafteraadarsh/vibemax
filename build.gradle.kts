@@ -11,9 +11,9 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.7.3")
-        classpath("com.github.recloudstream:gradle:-SNAPSHOT")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0")
+        classpath("com.android.tools.build:gradle:8.13.2")
+        classpath("com.github.recloudstream:gradle:master-SNAPSHOT")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.0")
     }
 }
 
@@ -73,8 +73,8 @@ subprojects {
 
         // Dependencies
         implementation(kotlin("stdlib"))
-        implementation("com.github.Blatzar:NiceHttp:0.4.11")
-        implementation("org.jsoup:jsoup:1.18.3")
+        implementation("com.github.Blatzar:NiceHttp:0.4.16")
+        implementation("org.jsoup:jsoup:1.22.1")
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
     }
 }
