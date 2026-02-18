@@ -4,7 +4,10 @@
 *.aab
 *.dex
 *.class
+
+# Ignore jars except gradle wrapper
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 
 # Gradle
 .gradle/
