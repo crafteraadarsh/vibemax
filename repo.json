@@ -1,0 +1,8 @@
+{
+    "name": "Vibemax Repository",
+    "description": "CloudStream extension for vibemax.to - Watch movies & TV shows with multiple servers",
+    "manifestVersion": 1,
+    "pluginLists": [
+        "https://raw.githubusercontent.com/crafteraadarsh/vibemax/builds/plugins.json"
+    ]
+}

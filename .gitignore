@@ -1,0 +1,28 @@
+# Built files
+*.cs3
+*.apk
+*.aab
+*.dex
+*.class
+*.jar
+
+# Gradle
+.gradle/
+build/
+*/build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+*.swp
+*.swo
+
+# Kotlin
+*.kotlin_module
+
+# Android
+/captures
+.externalNativeBuild/
+.cxx/
