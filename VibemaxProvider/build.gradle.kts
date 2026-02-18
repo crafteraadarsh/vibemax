@@ -3,7 +3,7 @@ version = 1
 
 cloudstream {
     description = "Watch movies & TV shows from VibeMax - Supports multiple servers and downloads"
-    authors = listOf("aadarshsingh1421-oss")
+    authors = listOf("crafteraadarsh")
     
     /**
      * Status int as one of the following:
