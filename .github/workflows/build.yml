@@ -7,7 +7,6 @@ on:
       - master
     paths-ignore:
       - '*.md'
-      - 'repo.json'
   workflow_dispatch:
 
 permissions:
@@ -22,12 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           path: "src"
 
       - name: Checkout builds
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
         with:
           ref: "builds"
           path: "builds"
@@ -39,29 +38,32 @@ jobs:
           rm $GITHUB_WORKSPACE/builds/plugins.json || true
 
       - name: Setup JDK 17
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           java-version: 17
-          distribution: adopt
-          cache: gradle
+          distribution: temurin
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3.2.2
+        uses: android-actions/setup-android@v3
 
       - name: Build plugins
         run: |
           cd $GITHUB_WORKSPACE/src
           chmod +x gradlew
           ./gradlew make makePluginsJson
-          cp **/build/*.cs3 $GITHUB_WORKSPACE/builds/ || true
-          cp **/build/*.jar $GITHUB_WORKSPACE/builds/ || true
-          cp build/plugins.json $GITHUB_WORKSPACE/builds/
+
+      - name: Copy build files
+        run: |
+          cd $GITHUB_WORKSPACE/src
+          find . -name "*.cs3" -exec cp {} $GITHUB_WORKSPACE/builds/ \;
+          cp build/plugins.json $GITHUB_WORKSPACE/builds/ 2>/dev/null || echo "plugins.json not found"
+          cp repo.json $GITHUB_WORKSPACE/builds/ 2>/dev/null || echo "repo.json not found"
 
       - name: Push builds
         run: |
           cd $GITHUB_WORKSPACE/builds
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add .
           git commit -m "Build: ${{ github.sha }}" || exit 0
           git push origin builds
