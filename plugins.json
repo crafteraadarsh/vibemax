@@ -1,8 +1,22 @@
 [
-  {
-    "name": "VibemaxProvider",
-    "url": "https://raw.githubusercontent.com/crafteraadarsh/vibemax/builds/VibemaxProvider.cs3",
-    "status": 1,
-    "version": 1
-  }
+    {
+        "iconUrl": "https://vibemax.to/images/icon-192x192.png",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/crafteraadarsh/vibemax",
+        "fileSize": 24475,
+        "status": 1,
+        "language": "en",
+        "authors": [
+            "crafteraadarsh"
+        ],
+        "tvTypes": [
+            "Movie",
+            "TvSeries"
+        ],
+        "version": 1,
+        "internalName": "VibemaxProvider",
+        "description": "Watch movies & TV shows from VibeMax - Supports multiple servers and downloads",
+        "url": "https://raw.githubusercontent.com/crafteraadarsh/vibemax/builds/VibemaxProvider.cs3",
+        "name": "VibemaxProvider"
+    }
 ]
